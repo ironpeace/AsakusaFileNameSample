@@ -1,0 +1,11 @@
+batch: fnsBatch
+flow: SampleJobFlow
+    input:
+        samplemodel (ironpeace.jobflow.SampleModelFromCsv)
+    output:
+        exsamplemodel (ironpeace.jobflow.SampleModelToCsv)
+    flow: ironpeace.jobflow.SampleJobFlow
+        operator: ironpeace.operator.SampleOperator#updated([class ironpeace.modelgen.dmdl.model.ExSampleModel])[]
+        input: InputDescription{name=samplemodel, type=class ironpeace.modelgen.dmdl.model.SampleModel}
+        operator: com.asakusafw.vocabulary.flow.util.CoreOperatorFactory$Extend#toString([])[]
+        output: OutputDescription{name=exsamplemodel, type=class ironpeace.modelgen.dmdl.model.ExSampleModel}

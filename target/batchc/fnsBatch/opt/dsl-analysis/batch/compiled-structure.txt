@@ -1,0 +1,16 @@
+batch: fnsBatch
+flow: SampleJobFlow
+    input:
+        samplemodel (ironpeace.jobflow.SampleModelFromCsv)
+    output:
+        exsamplemodel (ironpeace.jobflow.SampleModelToCsv)
+    stages:
+        prologue:
+        main:
+            stage: ironpeace.batchapp.fnsBatch.sampleJobFlow.stage0001.StageClient
+                mapper: ironpeace.batchapp.fnsBatch.sampleJobFlow.stage0001.StageMapper1
+                    fragment: ironpeace.batchapp.fnsBatch.sampleJobFlow.stage0001.MapFragment1
+                        operator: com.asakusafw.vocabulary.flow.util.CoreOperatorFactory$Extend#toString([])[]
+                        operator: ironpeace.operator.SampleOperator#updated([class ironpeace.modelgen.dmdl.model.ExSampleModel])[]
+        epilogue:
+            stage: ironpeace.batchapp.fnsBatch.sampleJobFlow.directio.epilogue.StageClient

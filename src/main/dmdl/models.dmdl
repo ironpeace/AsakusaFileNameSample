@@ -1,0 +1,28 @@
+"SampleModel"
+@directio.csv(
+    has_header = TRUE,
+    datetime = "yyyy-MM-dd HH:mm:ss"
+)
+sample_model = {
+    @directio.csv.file_name
+	file_name:TEXT;
+
+    "keycode"
+    @directio.csv.field(name = "keycode")
+    keycode : TEXT;
+
+    "data01"
+    @directio.csv.field(name = "data01")
+    data01 : TEXT;
+};
+
+@directio.csv(
+    has_header = TRUE,
+    datetime = "yyyy-MM-dd HH:mm:ss"
+)
+ex_sample_model = sample_model + {
+    "term"
+    @directio.csv.field(name = "term")
+    term : TEXT;
+};
+
